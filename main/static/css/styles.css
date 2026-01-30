@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(17, 27, 49);
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    background-color: rgb(17, 24, 39);
+}
+
+header h1 {
+    color: rgb(229, 231, 235);
+    padding: 20px 30px 0 30px;
+}
+
+header h3 {
+    color: rgb(203, 213, 225);
+    padding: 5px 30px 20px 30px;
+}
+
+nav {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(17, 24, 39);
+    border: 2px solid rgb(30, 41, 59);
+    border-radius: 0 0 6px 6px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    height: 100%;
+}
+
+nav ul li {
+    flex: 1;
+    height: 100%;
+}
+
+nav ul li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: rgb(229, 231, 235);
+    z-index: 1;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgb(37, 99, 235);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    border-radius: 6px;
+    z-index: -1;
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+}
+
+/* Chrome, Edge, Safari */
+#content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+}
+
+#content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.25) rgba(255,255,255,0.08);
+    flex: 1;
+    width: 98%;
+    margin: 10px auto;
+    padding: 15px;
+    color: rgb(229, 231, 235);
+    overflow: auto;
+    padding-bottom: 80px;
+}
+
+#content h2 {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    line-height: 2em;
+}
+
+#content p {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    line-height: 2em;
+    font-size: large;
+}
+
+.content-main {
+    background-color: rgb(30, 41, 59);
+    overflow: hidden;
+    padding: 3px 20px 3px 20px;
+    border-radius: 6px;
+    box-shadow: -6px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.content-image {
+    float: left;
+    width: 250px;
+    height: auto;
+    margin: 4px 20px 20px 0;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+#content::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(17, 24, 39);
+    color: rgb(229, 231, 235);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 10px 100px;
+    border-radius: 6px 6px 0 0;
+    z-index: 1000;
+}
+
+.footer-text {
+    white-space: nowrap; /* evita que el nombre se rompa en dos líneas */
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-socials a {
+    color: rgb(203, 213, 225); /* mismo tono que subtítulos */
+    font-size: 1.4rem;
+    transition: color 200ms ease, transform 200ms ease;
+}
+
+.footer-socials a:hover {
+    color: rgb(37, 99, 235); /* acento */
+    transform: translateY(-2px);
+}
+
+.collapsible {
+    background-color: rgb(30, 41, 59);
+    color: rgb(229, 231, 235);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.collapsible:hover,
+.collapsible.active {
+    background-color: rgb(37, 99, 235);
+}
+
+.collapsible::after {
+    content: "+";
+    float: right;
+    font-size: 18px;
+}
+
+.collapsible.active::after {
+    content: "−";
+}
+
+.collapsible-content {
+    background-color: rgb(30, 41, 59);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+    border-radius: 0 0 6px 6px;
+    border-left: 3px solid rgb(37, 99, 235);
+    opacity: 0;
+    padding: 0 26px;
+}
+
+.collapsible-content p {
+    padding: 18px 0;
+    color: rgb(229, 231, 235);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.collapsible-wrapper {
+    margin-bottom: 20px;
+}
+
+.collapsible.active + .collapsible-content {
+    opacity: 1;
+}
+
+a {
+    color: rgb(37, 99, 235);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: rgb(59, 130, 246);
+    text-decoration: underline;
+}
+
+.certifications-list {
+    margin: 18px 0 0 18px;
+}
+
+.tabs {
+    width: 100%;
+    margin: 20px 0;
+    background-color: rgb(30, 41, 59);
+    border-radius: 6px;
+    box-shadow: -6px 5px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Contenedor de botones */
+.tab-buttons {
+    display: flex;
+    background-color: rgb(17, 24, 39);
+    border-bottom: 2px solid rgb(30, 41, 59);
+}
+
+/* Botón de pestaña */
+.tab-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: rgb(203, 213, 225);
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    transition: color 200ms ease;
+}
+
+/* Línea inferior animada */
+.tab-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(37, 99, 235);
+    opacity: 0;
+    transition: opacity 200ms ease;
+}
+
+/* Hover */
+.tab-btn:hover {
+    color: rgb(229, 231, 235);
+}
+
+.tab-btn:hover::after {
+    opacity: 0.5;
+}
+
+/* Activa */
+.tab-btn.active {
+    color: rgb(229, 231, 235);
+}
+
+.tab-btn.active::after {
+    opacity: 1;
+}
+
+/* Contenido */
+.tab-content {
+    padding: 20px;
+}
+
+/* Panel */
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Texto dentro de tabs */
+.tab-panel h2,
+.tab-panel p {
+    color: rgb(229, 231, 235);
+    line-height: 1.8;
+}
+
+.skills-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.skills-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* NOMBRE */
+.skill-name {
+    color: rgb(229, 231, 235);
+    font-size: 1rem;
+}
+
+/* CONTENEDOR DE ESTRELLAS */
+.stars {
+    --rating: 0;
+    position: relative;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.2);
+    line-height: 1;
+}
+
+/* ⭐ Estrellas base (grises) */
+.stars::before {
+    content: "★★★★★★★★★★";
+}
+
+/* ⭐ Estrellas activas (azules) */
+.stars::after {
+    content: "★★★★★★★★★★";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: rgb(37, 99, 235);
+    width: 0;
+    overflow: hidden;
+    animation: fillStars 600ms ease-out forwards;
+}
+
+/* Animación */
+@keyframes fillStars {
+    to {
+        width: calc(var(--rating) / 10 * 100%);
+    }
+}
+
+/* Tooltip */
+.stars-tooltip {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    background-color: rgb(17, 24, 39);
+    color: rgb(229, 231, 235);
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 200ms ease, transform 200ms ease;
+    pointer-events: none;
+}
+
+/* Mostrar tooltip */
+.stars:hover .stars-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ASIGNACIÓN DE NIVEL */
+.stars[data-level="1"]  { --rating: 1; }
+.stars[data-level="2"]  { --rating: 2; }
+.stars[data-level="3"]  { --rating: 3; }
+.stars[data-level="4"]  { --rating: 4; }
+.stars[data-level="5"]  { --rating: 5; }
+.stars[data-level="6"]  { --rating: 6; }
+.stars[data-level="7"]  { --rating: 7; }
+.stars[data-level="8"]  { --rating: 8; }
+.stars[data-level="9"]  { --rating: 9; }
+.stars[data-level="10"] { --rating: 10; }
+
+@media (max-width: 768px) {
+
+    nav {
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        height: 40px;
+    }
+
+    #content {
+        width: 95%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+
+    .content-image {
+        float: none;
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 20px auto;
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
+
+    .skills-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .stars {
+        font-size: 1rem;
+    }
+}

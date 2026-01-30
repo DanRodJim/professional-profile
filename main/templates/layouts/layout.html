@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Daniel Gustavo Rodríguez Jiménez</h1>
+        <h3>Software Engineer</h3>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Main</a>
+            </li>
+            <li>
+                <a href="/studies">Studies</a>
+            </li>
+            <li>
+                <a href="/skills">Skills</a>
+            </li>
+            <li>
+                <a href="/experience">Experience</a>
+            </li>
+            <li>
+                <a href="/hobbies">Hobbies</a>
+            </li>
+            <li>
+                <a href="/about">About this page</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <span class="footer-text">
+            Daniel Gustavo Rodríguez Jiménez
+        </span>
+        <div class="footer-socials">
+            <a href="https://github.com/danrodjim" target="_blank" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/daniel-gustavo-rodriguez-jimenez" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+
+    {% block scripts %}
+        <script src="{% static 'main/scripts/collapsible.js' %}" defer></script>
+        <script src="{% static 'main/scripts/tabs.js' %}" defer></script>
+    {% endblock %}
+</body>
+
+</html>

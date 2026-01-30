@@ -1,0 +1,229 @@
+{% extends "layouts/layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<div class="tabs">
+
+  <div class="tab-buttons">
+    <button class="tab-btn active" data-tab="tab-skills">Hard Skills</button>
+    <button class="tab-btn" data-tab="tab-other">Soft Skills</button>
+  </div>
+
+  <div class="tab-content">
+    <div id="tab-skills" class="tab-panel active">
+      <h2>This are my hard skills and the level of mastering I have on them:</h2>
+      <ul class="skills-list">
+        <li>
+          <span class="skill-name">Python</span>
+          <span
+            class="stars"
+            data-level="8"
+            role="img"
+            aria-label="Level 8 out of 10 in Python">
+            <span class="stars-tooltip">8/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">Node.js</span>
+          <span
+            class="stars"
+            data-level="8"
+            role="img"
+            aria-label="Level 8 out of 10 in Noout ofJS">
+            <span class="stars-tooltip">8/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">Express</span>
+          <span
+            class="stars"
+            data-level="8"
+            role="img"
+            aria-label="Level 8 out of 10 in Express">
+            <span class="stars-tooltip">8/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">TypeScript</span>
+          <span
+            class="stars"
+            data-level="8"
+            role="img"
+            aria-label="Level 8 out of 10 in TypeScript">
+            <span class="stars-tooltip">8/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">JavaScript</span>
+          <span
+            class="stars"
+            data-level="8"
+            role="img"
+            aria-label="Level 8 out of 10 in JavaScript">
+            <span class="stars-tooltip">8/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">Java</span>
+          <span
+            class="stars"
+            data-level="4"
+            role="img"
+            aria-label="Level 4 out of 10 in Java">
+            <span class="stars-tooltip">4/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">C++</span>
+          <span
+            class="stars"
+            data-level="4"
+            role="img"
+            aria-label="Level 4 out of 10 in C++">
+            <span class="stars-tooltip">4/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">C#</span>
+          <span
+            class="stars"
+            data-level="2"
+            role="img"
+            aria-label="Level 2 out of 10 in C#">
+            <span class="stars-tooltip">2/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">HTML</span>
+          <span
+            class="stars"
+            data-level="4"
+            role="img"
+            aria-label="Level 4 out of 10 in HTML">
+            <span class="stars-tooltip">4/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">CSS</span>
+          <span
+            class="stars"
+            data-level="2"
+            role="img"
+            aria-label="Level 2 out of 10 in CSS">
+            <span class="stars-tooltip">2/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">GraphQL</span>
+          <span
+            class="stars"
+            data-level="4"
+            role="img"
+            aria-label="Level 4 out of 10 in GraphQL">
+            <span class="stars-tooltip">4/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">Pandas</span>
+          <span
+            class="stars"
+            data-level="4"
+            role="img"
+            aria-label="Level 4 out of 10 in Pandas">
+            <span class="stars-tooltip">4/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">Git</span>
+          <span
+            class="stars"
+            data-level="6"
+            role="img"
+            aria-label="Level 6 out of 10 in Git">
+            <span class="stars-tooltip">6/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">Docker</span>
+          <span
+            class="stars"
+            data-level="2"
+            role="img"
+            aria-label="Level 2 out of 10 in Docker">
+            <span class="stars-tooltip">2/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">PrismaORM</span>
+          <span
+            class="stars"
+            data-level="6"
+            role="img"
+            aria-label="Level 6 out of 10 in PrismaORM">
+            <span class="stars-tooltip">6/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">Django</span>
+          <span
+            class="stars"
+            data-level="6"
+            role="img"
+            aria-label="Level 6 out of 10 in Django">
+            <span class="stars-tooltip">6/10</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="skill-name">Angular</span>
+          <span
+            class="stars"
+            data-level="2"
+            role="img"
+            aria-label="Level 2 out of 10 in Angular">
+            <span class="stars-tooltip">2/10</span>
+          </span>
+        </li>
+      </ul>
+
+    </div>
+
+    <div id="tab-other" class="tab-panel">
+        <h2>These are some attributes that define me as a worker and as a person:</h2>
+        <ul class="skills-list">
+            <li>
+            <span class="skill-name">Responsible</span>
+            </li>
+            <li>
+            <span class="skill-name">Proactive</span>
+            </li>
+            <li>
+            <span class="skill-name">Teamworker</span>
+            </li>
+            <li>
+            <span class="skill-name">Focused on solutions</span>
+            </li>
+        </ul>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
