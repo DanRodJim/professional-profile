@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {% block title %} {% endblock %} </title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skills.css' %}">
+    <link rel="stylesheet" href="{% static 'css/studies.css' %}">
+    <link rel="stylesheet" href="{% static 'css/experiences.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -17,7 +20,13 @@
     </header>
 
     <nav>
-        <ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul id="navMenu">
             <li>
                 <a href="/">Main</a>
             </li>
@@ -61,6 +70,7 @@
     {% block scripts %}
         <script src="{% static 'main/scripts/collapsible.js' %}" defer></script>
         <script src="{% static 'main/scripts/tabs.js' %}" defer></script>
+        <script src="{% static 'main/scripts/menu-mobile.js' %}" defer></script>
     {% endblock %}
 </body>
 

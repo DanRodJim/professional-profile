@@ -1,9 +1,46 @@
 {% extends "layouts/layout.html" %}
+{% load static %}
 
 {% block title %} {{title}} {% endblock %}
 
-{% block content %} 
-KeynaSoft
-GoLabs
-Wind River
+{% block content %}
+<div class="content-main">
+    <img src="{% static 'images/windriver-logo.jpg' %}" alt="Wind River" class="experience-image">
+    
+    <h2>Senior Software Engineer - Wind River</h2>
+    <h3>September 2020 - May 2024</h3>
+    <p>
+        Software Engineer member of the team in charge of the backend for an authentication and authorization system
+        for a large-scale project.
+    </p>
+    <p><strong>Some of my responsibilities and achievements:</strong></p>
+    <ul class="experience-list">
+        <li>Reviewed project specifications and designed technology solutions that met or exceeded performance expectations.</li>
+        <li>Optimization of code performance to improve user experience and system efficiency.</li>
+        <li>Regularly reviewed peer code contributions, offering constructive feedback to improve overall product quality.</li>
+        <li>Worked with project manager, developers, quality assurance, and customers to resolve technical issues.</li>
+    </ul>
+    <p class="tech-stack">
+        <strong>Tech Stack:</strong> Node.js, TypeScript, PostgreSQL, Kafka, JWT, Mocha, Yup, Prisma, PyTest, Git, Jenkins
+    </p>
+</div>
+
+<div class="content-main">
+    <img src="{% static 'images/golabs-logo.jpg' %}" alt="GoLabs Tech" class="experience-image">
+    
+    <h2>Software Engineer Intern - GoLabs Tech</h2>
+    <h3>January 2020 - February 2020</h3>
+    <p>
+        Three weeks of internship learning about the work environment and technologies like Ruby on Rails, Docker, and Git.
+    </p>
+    <p><strong>Some of my responsibilities and achievements:</strong></p>
+    <ul class="experience-list">
+        <li>Migration of a project from Ruby on Rail version 5 to Ruby on Rails version 6.</li>
+        <li>This internship was part of the prize for winning a programming contest.</li>
+    </ul>
+    <p class="tech-stack">
+        <strong>Tech Stack:</strong> Ruby On Rails, JavaScript, Docker, Git.
+    </p>
+</div>
+
 {% endblock %}

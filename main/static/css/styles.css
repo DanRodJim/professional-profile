@@ -20,6 +20,8 @@ body {
 header {
     width: 100%;
     background-color: rgb(17, 24, 39);
+    position: relative;
+    z-index: 101;
 }
 
 header h1 {
@@ -38,12 +40,19 @@ nav {
     background-color: rgb(17, 24, 39);
     border: 2px solid rgb(30, 41, 59);
     border-radius: 0 0 6px 6px;
+    position: relative;
+    z-index: 101;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    height: 100%;
+}
+
+@media (min-width: 769px) {
+    nav ul {
+        height: 100%;
+    }
 }
 
 nav ul li {
@@ -76,6 +85,43 @@ nav ul li a:hover::after {
     opacity: 1;
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: rgb(229, 231, 235);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* Chrome, Edge, Safari */
 #content::-webkit-scrollbar {
     width: 8px;
@@ -99,12 +145,14 @@ nav ul li a:hover::after {
     scrollbar-width: thin;
     scrollbar-color: rgba(255,255,255,0.25) rgba(255,255,255,0.08);
     flex: 1;
-    width: 98%;
+    width: 95%;
     margin: 10px auto;
     padding: 15px;
     color: rgb(229, 231, 235);
     overflow: auto;
     padding-bottom: 80px;
+    position: relative;
+    z-index: 1;
 }
 
 #content h2 {
@@ -128,6 +176,7 @@ nav ul li a:hover::after {
     padding: 3px 20px 3px 20px;
     border-radius: 6px;
     box-shadow: -6px 5px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
 }
 
 .content-image {
@@ -162,7 +211,7 @@ footer {
 }
 
 .footer-text {
-    white-space: nowrap; /* evita que el nombre se rompa en dos líneas */
+    white-space: nowrap;
 }
 
 .footer-socials {
@@ -173,68 +222,14 @@ footer {
 }
 
 .footer-socials a {
-    color: rgb(203, 213, 225); /* mismo tono que subtítulos */
+    color: rgb(203, 213, 225);
     font-size: 1.4rem;
     transition: color 200ms ease, transform 200ms ease;
 }
 
 .footer-socials a:hover {
-    color: rgb(37, 99, 235); /* acento */
+    color: rgb(37, 99, 235);
     transform: translateY(-2px);
-}
-
-.collapsible {
-    background-color: rgb(30, 41, 59);
-    color: rgb(229, 231, 235);
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    font-size: 16px;
-    border-radius: 6px;
-    margin-bottom: 5px;
-}
-
-.collapsible:hover,
-.collapsible.active {
-    background-color: rgb(37, 99, 235);
-}
-
-.collapsible::after {
-    content: "+";
-    float: right;
-    font-size: 18px;
-}
-
-.collapsible.active::after {
-    content: "−";
-}
-
-.collapsible-content {
-    background-color: rgb(30, 41, 59);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.2s ease;
-    border-radius: 0 0 6px 6px;
-    border-left: 3px solid rgb(37, 99, 235);
-    opacity: 0;
-    padding: 0 26px;
-}
-
-.collapsible-content p {
-    padding: 18px 0;
-    color: rgb(229, 231, 235);
-    line-height: 1.8;
-    font-size: 1rem;
-}
-
-.collapsible-wrapper {
-    margin-bottom: 20px;
-}
-
-.collapsible.active + .collapsible-content {
-    opacity: 1;
 }
 
 a {
@@ -248,200 +243,52 @@ a:hover {
     text-decoration: underline;
 }
 
-.certifications-list {
-    margin: 18px 0 0 18px;
-}
-
-.tabs {
-    width: 100%;
-    margin: 20px 0;
-    background-color: rgb(30, 41, 59);
-    border-radius: 6px;
-    box-shadow: -6px 5px 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-}
-
-/* Contenedor de botones */
-.tab-buttons {
-    display: flex;
-    background-color: rgb(17, 24, 39);
-    border-bottom: 2px solid rgb(30, 41, 59);
-}
-
-/* Botón de pestaña */
-.tab-btn {
-    flex: 1;
-    padding: 12px 16px;
-    border: none;
-    background: transparent;
-    color: rgb(203, 213, 225);
-    cursor: pointer;
-    font-weight: 600;
-    position: relative;
-    transition: color 200ms ease;
-}
-
-/* Línea inferior animada */
-.tab-btn::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    background-color: rgb(37, 99, 235);
-    opacity: 0;
-    transition: opacity 200ms ease;
-}
-
-/* Hover */
-.tab-btn:hover {
-    color: rgb(229, 231, 235);
-}
-
-.tab-btn:hover::after {
-    opacity: 0.5;
-}
-
-/* Activa */
-.tab-btn.active {
-    color: rgb(229, 231, 235);
-}
-
-.tab-btn.active::after {
-    opacity: 1;
-}
-
-/* Contenido */
-.tab-content {
-    padding: 20px;
-}
-
-/* Panel */
-.tab-panel {
-    display: none;
-}
-
-.tab-panel.active {
-    display: block;
-}
-
-/* Texto dentro de tabs */
-.tab-panel h2,
-.tab-panel p {
-    color: rgb(229, 231, 235);
-    line-height: 1.8;
-}
-
-.skills-list {
-    list-style: none;
-    margin: 20px 0;
-    padding: 0;
-}
-
-.skills-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-/* NOMBRE */
-.skill-name {
-    color: rgb(229, 231, 235);
-    font-size: 1rem;
-}
-
-/* CONTENEDOR DE ESTRELLAS */
-.stars {
-    --rating: 0;
-    position: relative;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.2);
-    line-height: 1;
-}
-
-/* ⭐ Estrellas base (grises) */
-.stars::before {
-    content: "★★★★★★★★★★";
-}
-
-/* ⭐ Estrellas activas (azules) */
-.stars::after {
-    content: "★★★★★★★★★★";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: rgb(37, 99, 235);
-    width: 0;
-    overflow: hidden;
-    animation: fillStars 600ms ease-out forwards;
-}
-
-/* Animación */
-@keyframes fillStars {
-    to {
-        width: calc(var(--rating) / 10 * 100%);
-    }
-}
-
-/* Tooltip */
-.stars-tooltip {
-    position: absolute;
-    top: -30px;
-    right: 0;
-    background-color: rgb(17, 24, 39);
-    color: rgb(229, 231, 235);
-    padding: 4px 8px;
-    font-size: 0.8rem;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 200ms ease, transform 200ms ease;
-    pointer-events: none;
-}
-
-/* Mostrar tooltip */
-.stars:hover .stars-tooltip {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ASIGNACIÓN DE NIVEL */
-.stars[data-level="1"]  { --rating: 1; }
-.stars[data-level="2"]  { --rating: 2; }
-.stars[data-level="3"]  { --rating: 3; }
-.stars[data-level="4"]  { --rating: 4; }
-.stars[data-level="5"]  { --rating: 5; }
-.stars[data-level="6"]  { --rating: 6; }
-.stars[data-level="7"]  { --rating: 7; }
-.stars[data-level="8"]  { --rating: 8; }
-.stars[data-level="9"]  { --rating: 9; }
-.stars[data-level="10"] { --rating: 10; }
-
 @media (max-width: 768px) {
-
+    .menu-toggle {
+        display: flex;
+    }
+    
     nav {
-        height: auto;
+        height: 50px;
     }
-
+    
     nav ul {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
         flex-direction: column;
+        background-color: rgb(17, 24, 39);
+        border: 2px solid rgb(30, 41, 59);
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        height: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
     }
-
+    
+    nav ul.active {
+        height: auto;
+        max-height: 1000px;
+    }
+    
     nav ul li {
-        height: 40px;
+        height: 45px;
+        border-bottom: 1px solid rgb(30, 41, 59);
     }
-
+    
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+    
     #content {
         width: 95%;
         margin: 15px auto;
         padding: 15px;
     }
-
+    
     .content-image {
         float: none;
         display: block;
@@ -449,18 +296,18 @@ a:hover {
         max-width: 400px;
         margin: 0 auto 20px auto;
     }
-
+    
     footer {
         font-size: 0.9rem;
+        padding: 10px 20px;
+        gap: 20px;
     }
-
-    .skills-list li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
+    
+    .footer-text {
+        font-size: 0.85rem;
     }
-
-    .stars {
-        font-size: 1rem;
+    
+    .footer-socials a {
+        font-size: 1.2rem;
     }
 }

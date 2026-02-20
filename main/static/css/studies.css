@@ -1,0 +1,57 @@
+.collapsible {
+    background-color: rgb(30, 41, 59);
+    color: rgb(229, 231, 235);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.collapsible:hover,
+.collapsible.active {
+    background-color: rgb(37, 99, 235);
+}
+
+.collapsible::after {
+    content: "+";
+    float: right;
+    font-size: 18px;
+}
+
+.collapsible.active::after {
+    content: "−";
+}
+
+.collapsible-content {
+    background-color: rgb(30, 41, 59);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+    border-radius: 0 0 6px 6px;
+    border-left: 3px solid rgb(37, 99, 235);
+    opacity: 0;
+    padding: 0 26px;
+}
+
+.collapsible-content p {
+    padding: 18px 0;
+    color: rgb(229, 231, 235);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.collapsible-wrapper {
+    margin-bottom: 20px;
+}
+
+.collapsible.active + .collapsible-content {
+    opacity: 1;
+}
+
+.certifications-list {
+    margin: 18px 0 0 18px;
+}
