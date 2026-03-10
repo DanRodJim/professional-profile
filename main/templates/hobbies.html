@@ -1,10 +1,56 @@
 {% extends "layouts/layout.html" %}
+{% load static %}
+{% load i18n %}
 
 {% block title %} {{title}} {% endblock %}
 
 {% block content %}
-Fußball,
-Reisen,
-Videospiele,
-Anime und Manga
+<div class="content-main">
+    <h2>{% trans "My Hobbies & Interests" %}</h2>
+    
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="{% static 'images/travel.jpeg' %}" alt="Travel">
+                <div class="slide-caption">
+                    <h3>{% trans "Travel" %}</h3>
+                    <p>{% trans "I have visited some different countries like Japan, Denmark, Switzerland, among others." %}</p>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="{% static 'images/soccer.jpg' %}" alt="Soccer">
+                <div class="slide-caption">
+                    <h3>{% trans "Soccer" %}</h3>
+                    <p>{% trans "I frequently play soccer with friends and watch professional matches when my favorite teams play." %}</p>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="{% static 'images/videogames.jpg' %}" alt="Gaming">
+                <div class="slide-caption">
+                    <h3>{% trans "Gaming" %}</h3>
+                    <p>{% trans "I relax from long days playing some of my favorite video games. My favorite one is Dota 2." %}</p>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="{% static 'images/animemanga.jpg' %}" alt="Anime and Manga">
+                <div class="slide-caption">
+                    <h3>{% trans "Anime and Manga" %}</h3>
+                    <p>{% trans "I have watched anime and read manga since my childhood and I still enjoy it a lot." %}</p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="slider-btn prev" id="prevBtn" aria-label="Previous slide">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-btn next" id="nextBtn" aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="slider-dots" id="sliderDots"></div>
+    </div>
+</div>
 {% endblock %}

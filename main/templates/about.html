@@ -1,8 +1,12 @@
 {% extends "layouts/layout.html" %}
+{% load i18n %}
 
 {% block title %} {{title}} {% endblock %}
 
 {% block content %}
-Este pequeño proyecto esta hecho utilizando Django/Django Rest Framework y HTML/CSS puros. 
-Próximamente probaré a hacerlo con otras tecnologias.
+<h2>{% trans "This project was made using Django, HTML, CSS and JavaScript." %}</h2>
+<br>
+<h3>{% trans "I did this to show some of my skills as Software Engineer." %}</h3>
+<h3>{% trans "If you want to know more about my work please contact me at my email: dgrj.tec@gmail.com" %}</h3>
+<h3>{% trans "Or check the links in the footer of this page." %}</h3>
 {% endblock %}

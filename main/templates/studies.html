@@ -1,32 +1,29 @@
 {% extends "layouts/layout.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block title %} {{title}} {% endblock %}
 
 {% block content %}
 
 <div class="collapsible-wrapper">
-    <button type="button" class="collapsible">University</button>
+    <button type="button" class="collapsible">{% trans "University" %}</button>
     <div class="collapsible-content">
         <p>
+            {% blocktrans %}
             I graduated from the Costa Rica Institute of Technology with a Bachelor's degree in Computer Engineering.
             I must say that my time at university was very important because of the amount I learned, not only about my field 
             of study but also about aspects of life and even about myself. During my university years, I had many experiences, 
             both good and bad; I faced setbacks and made mistakes from which I had to learn and overcome. Beyond my talent, 
             I also had to demonstrate a strong attitude and great effort to earn my degree, and now I can proudly say that I 
             succeeded and overcame a huge challenge that is now the cornerstone of my professional career.
-            Soy graduado del Tecnológico de Costa Rica en la carrera de Ingeniería en Computación con el grado de bachillerato universitario. 
-            Debo decir que mi paso por la universidad fue muy importante por la cantidad de cosas que aprendí, no solo sobre la carrera sino 
-            también sobre aspectos de la vida e incluso sobre mi mismo. Durante la universidad tuve muchas experiencias, buenas y malas, 
-            tuve tropiezos y errores de los que tuve que aprender y levantarme. Más allá de mi talento, tuve también que poner 
-            una gran actitud y esfuerzo para lograr obtener mi título universitario y ahora con orgullo puedo decir que logré salir adelante
-            y superar un reto enorme que ahora es la piedra angular de mi carrera profesional.
+            {% endblocktrans %}
         </p>
     </div>
 </div>
 
 <div class="collapsible-wrapper">
-    <button type="button" class="collapsible">Certifications</button>
+    <button type="button" class="collapsible">{% trans "Certifications" %}</button>
     <div class="collapsible-content">
         <p>
             <ul class="certifications-list">

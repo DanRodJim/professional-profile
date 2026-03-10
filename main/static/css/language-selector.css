@@ -1,0 +1,66 @@
+.language-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.language-selector form {
+    display: flex;
+    align-items: center;
+}
+
+.language-selector select {
+    background-color: rgb(30, 41, 59);
+    color: rgb(229, 231, 235);
+    border: 2px solid rgba(37, 100, 235, 0.4);
+    border-radius: 6px;
+    padding: 8px 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* .language-selector select:hover {
+    background-color: rgb(37, 99, 235);
+    border-color: rgb(59, 130, 246);
+} */
+
+.language-selector select:focus {
+    border-color: rgb(59, 130, 246);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+header .language-selector {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+nav .language-selector {
+    display: none;
+}
+
+footer .language-selector {
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    header .language-selector {
+        display: none;
+    }
+    
+    nav .language-selector {
+        display: flex;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 11;
+    }
+    
+    .language-selector select {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+}

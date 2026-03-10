@@ -1,4 +1,5 @@
 {% extends "layouts/layout.html" %}
+{% load i18n %}
 
 {% block title %} {{title}} {% endblock %}
 
@@ -7,14 +8,24 @@
 <div class="tabs">
 
   <div class="tab-buttons">
-    <button class="tab-btn active" data-tab="tab-skills">Hard Skills</button>
-    <button class="tab-btn" data-tab="tab-other">Soft Skills</button>
+    <button class="tab-btn active" data-tab="tab-skills">{% trans "Hard Skills" %}</button>
+    <button class="tab-btn" data-tab="tab-other">{% trans "Soft Skills" %}</button>
   </div>
 
   <div class="tab-content">
     <div id="tab-skills" class="tab-panel active">
-      <h2>This are my hard skills and the level of mastering I have on them:</h2>
+      <h2>{% trans "This are my hard skills and the level of mastering I have on them:" %}</h2>
       <ul class="skills-list">
+        <li>
+          <span class="skill-name">Node.js</span>
+          <span
+            class="stars"
+            data-level="8"
+            role="img"
+            aria-label="Level 8 out of 10 in Node.js">
+            <span class="stars-tooltip">Node.js 8/10</span>
+          </span>
+        </li>
         <li>
           <span class="skill-name">Python</span>
           <span
@@ -22,21 +33,9 @@
             data-level="8"
             role="img"
             aria-label="Level 8 out of 10 in Python">
-            <span class="stars-tooltip">8/10</span>
+            <span class="stars-tooltip">Python 8/10</span>
           </span>
         </li>
-
-        <li>
-          <span class="skill-name">Node.js</span>
-          <span
-            class="stars"
-            data-level="8"
-            role="img"
-            aria-label="Level 8 out of 10 in Noout ofJS">
-            <span class="stars-tooltip">8/10</span>
-          </span>
-        </li>
-
         <li>
           <span class="skill-name">Express</span>
           <span
@@ -44,10 +43,9 @@
             data-level="8"
             role="img"
             aria-label="Level 8 out of 10 in Express">
-            <span class="stars-tooltip">8/10</span>
+            <span class="stars-tooltip">Express 8/10</span>
           </span>
         </li>
-
         <li>
           <span class="skill-name">TypeScript</span>
           <span
@@ -55,10 +53,9 @@
             data-level="8"
             role="img"
             aria-label="Level 8 out of 10 in TypeScript">
-            <span class="stars-tooltip">8/10</span>
+            <span class="stars-tooltip">TypeScript 8/10</span>
           </span>
         </li>
-
         <li>
           <span class="skill-name">JavaScript</span>
           <span
@@ -66,43 +63,69 @@
             data-level="8"
             role="img"
             aria-label="Level 8 out of 10 in JavaScript">
-            <span class="stars-tooltip">8/10</span>
+            <span class="stars-tooltip">JavaScript 8/10</span>
           </span>
         </li>
-
         <li>
-          <span class="skill-name">Java</span>
+          <span class="skill-name">PostgreSQL</span>
           <span
             class="stars"
-            data-level="4"
+            data-level="8"
             role="img"
-            aria-label="Level 4 out of 10 in Java">
-            <span class="stars-tooltip">4/10</span>
+            aria-label="Level 8 out of 10 in PostgreSQL">
+            <span class="stars-tooltip">PostgreSQL 8/10</span>
           </span>
         </li>
-
         <li>
-          <span class="skill-name">C++</span>
+          <span class="skill-name">Git</span>
           <span
             class="stars"
-            data-level="4"
+            data-level="7"
             role="img"
-            aria-label="Level 4 out of 10 in C++">
-            <span class="stars-tooltip">4/10</span>
+            aria-label="Level 7 out of 10 in Git">
+            <span class="stars-tooltip">Git 7/10</span>
           </span>
         </li>
-
         <li>
-          <span class="skill-name">C#</span>
+          <span class="skill-name">PrismaORM</span>
           <span
             class="stars"
-            data-level="2"
+            data-level="7"
             role="img"
-            aria-label="Level 2 out of 10 in C#">
-            <span class="stars-tooltip">2/10</span>
+            aria-label="Level 7 out of 10 in PrismaORM">
+            <span class="stars-tooltip">PrismaORM 7/10</span>
           </span>
         </li>
-
+        <li>
+          <span class="skill-name">Django</span>
+          <span
+            class="stars"
+            data-level="5"
+            role="img"
+            aria-label="Level 5 out of 10 in Django">
+            <span class="stars-tooltip">Django 5/10</span>
+          </span>
+        </li>
+        <li>
+          <span class="skill-name">SQLAlchemy</span>
+          <span
+            class="stars"
+            data-level="5"
+            role="img"
+            aria-label="Level 5 out of 10 in SQLAlchemy">
+            <span class="stars-tooltip">SQLAlchemy 5/10</span>
+          </span>
+        </li>
+        <li>
+          <span class="skill-name">MongoDB</span>
+          <span
+            class="stars"
+            data-level="5"
+            role="img"
+            aria-label="Level 5 out of 10 in MongoDB">
+            <span class="stars-tooltip">MongoDB 5/10</span>
+          </span>
+        </li>
         <li>
           <span class="skill-name">HTML</span>
           <span
@@ -110,54 +133,79 @@
             data-level="4"
             role="img"
             aria-label="Level 4 out of 10 in HTML">
-            <span class="stars-tooltip">4/10</span>
+            <span class="stars-tooltip">HTML 4/10</span>
           </span>
         </li>
-
         <li>
-          <span class="skill-name">CSS</span>
+          <span class="skill-name">Amazon Web Services</span>
           <span
             class="stars"
-            data-level="2"
+            data-level="4"
             role="img"
-            aria-label="Level 2 out of 10 in CSS">
-            <span class="stars-tooltip">2/10</span>
+            aria-label="Level 4 out of 10 in AWS">
+            <span class="stars-tooltip">AWS 4/10</span>
           </span>
         </li>
-
         <li>
           <span class="skill-name">GraphQL</span>
           <span
             class="stars"
-            data-level="4"
+            data-level="3"
             role="img"
-            aria-label="Level 4 out of 10 in GraphQL">
-            <span class="stars-tooltip">4/10</span>
+            aria-label="Level 3 out of 10 in GraphQL">
+            <span class="stars-tooltip">GraphQL 3/10</span>
           </span>
         </li>
-
         <li>
           <span class="skill-name">Pandas</span>
           <span
             class="stars"
-            data-level="4"
+            data-level="3"
             role="img"
-            aria-label="Level 4 out of 10 in Pandas">
-            <span class="stars-tooltip">4/10</span>
+            aria-label="Level 3 out of 10 in Pandas">
+            <span class="stars-tooltip">Pandas 3/10</span>
           </span>
         </li>
-
         <li>
-          <span class="skill-name">Git</span>
+          <span class="skill-name">C++</span>
           <span
             class="stars"
-            data-level="6"
+            data-level="3"
             role="img"
-            aria-label="Level 6 out of 10 in Git">
-            <span class="stars-tooltip">6/10</span>
+            aria-label="Level 3 out of 10 in C++">
+            <span class="stars-tooltip">C++ 3/10</span>
           </span>
         </li>
-
+        <li>
+          <span class="skill-name">CSS</span>
+          <span
+            class="stars"
+            data-level="3"
+            role="img"
+            aria-label="Level 3 out of 10 in CSS">
+            <span class="stars-tooltip">CSS 3/10</span>
+          </span>
+        </li>
+        <li>
+          <span class="skill-name">Java</span>
+          <span
+            class="stars"
+            data-level="2"
+            role="img"
+            aria-label="Level 2 out of 10 in Java">
+            <span class="stars-tooltip">Java 2/10</span>
+          </span>
+        </li>
+        <li>
+          <span class="skill-name">C#</span>
+          <span
+            class="stars"
+            data-level="2"
+            role="img"
+            aria-label="Level 2 out of 10 in C#">
+            <span class="stars-tooltip">C# 2/10</span>
+          </span>
+        </li>
         <li>
           <span class="skill-name">Docker</span>
           <span
@@ -165,84 +213,60 @@
             data-level="2"
             role="img"
             aria-label="Level 2 out of 10 in Docker">
-            <span class="stars-tooltip">2/10</span>
+            <span class="stars-tooltip">Docker 2/10</span>
           </span>
         </li>
-
-        <li>
-          <span class="skill-name">PrismaORM</span>
-          <span
-            class="stars"
-            data-level="6"
-            role="img"
-            aria-label="Level 6 out of 10 in PrismaORM">
-            <span class="stars-tooltip">6/10</span>
-          </span>
-        </li>
-
-        <li>
-          <span class="skill-name">Django</span>
-          <span
-            class="stars"
-            data-level="6"
-            role="img"
-            aria-label="Level 6 out of 10 in Django">
-            <span class="stars-tooltip">6/10</span>
-          </span>
-        </li>
-
         <li>
           <span class="skill-name">Angular</span>
           <span
             class="stars"
-            data-level="2"
+            data-level="1"
             role="img"
-            aria-label="Level 2 out of 10 in Angular">
-            <span class="stars-tooltip">2/10</span>
+            aria-label="Level 1 out of 10 in Angular">
+            <span class="stars-tooltip">Angular 1/10</span>
           </span>
         </li>
       </ul>
-
     </div>
 
     <div id="tab-other" class="tab-panel">
-        <h2>These are some attributes that define me as a worker and as a person:</h2>
+        <h2>{% trans "These are some attributes that define me as a worker and as a person:" %}</h2>
         <ul class="skills-list">
           <li>
-            <span class="skill-name">Problem Solving</span>
+            <span class="skill-name">{% trans "Problem Solving" %}</span>
           </li>
           <li>
-            <span class="skill-name">Adaptative</span>
+            <span class="skill-name">{% trans "Adaptative" %}</span>
           </li>
           <li>
-            <span class="skill-name">Continuos Learning</span>
+            <span class="skill-name">{% trans "Continuos Learning" %}</span>
           </li>
           <li>
-            <span class="skill-name">Assertive communication</span>
+            <span class="skill-name">{% trans "Assertive communication" %}</span>
           </li>
           <li>
-            <span class="skill-name">Empathic</span>
+            <span class="skill-name">{% trans "Empathic" %}</span>
           </li>
           <li>
-            <span class="skill-name">Proactive</span>
+            <span class="skill-name">{% trans "Proactive" %}</span>
           </li>
           <li>
-            <span class="skill-name">Time management and self-management</span>
+            <span class="skill-name">{% trans "Time management and self-management" %}</span>
           </li>
           <li>
-            <span class="skill-name">Critical thinking</span>
+            <span class="skill-name">{% trans "Critical thinking" %}</span>
           </li>
           <li>
-            <span class="skill-name">Responsible</span>
+            <span class="skill-name">{% trans "Responsible" %}</span>
           </li>
           <li>
-            <span class="skill-name">Teamwork and Colaboration</span>
+            <span class="skill-name">{% trans "Teamwork and Colaboration" %}</span>
           </li>
           <li>
-            <span class="skill-name">Focused on solutions</span>
+            <span class="skill-name">{% trans "Focused on solutions" %}</span>
           </li>
           <li>
-            <span class="skill-name">Attention to detail</span>
+            <span class="skill-name">{% trans "Attention to detail" %}</span>
           </li>
         </ul>
     </div>

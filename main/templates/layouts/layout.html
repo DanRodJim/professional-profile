@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,16 +11,48 @@
     <link rel="stylesheet" href="{% static 'css/skills.css' %}">
     <link rel="stylesheet" href="{% static 'css/studies.css' %}">
     <link rel="stylesheet" href="{% static 'css/experiences.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hobbies.css' %}">
+    <link rel="stylesheet" href="{% static 'css/language-selector.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
     <header>
-        <h1>Daniel Gustavo Rodríguez Jiménez</h1>
-        <h3>Software Engineer</h3>
+        <h2>{% trans "Daniel Gustavo Rodriguez Jimenez" %}</h2>
+        <h4>{% trans "Software Engineer" %}</h4>
+        <div class="language-selector">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.path }}" />
+                <select name="language" onchange="this.form.submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% for lang_code, lang_name in LANGUAGES %}
+                        <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                            {{ lang_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
     </header>
 
     <nav>
+        <div class="language-selector">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.path }}" />
+                <select name="language" onchange="this.form.submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% for lang_code, lang_name in LANGUAGES %}
+                        <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                            {{ lang_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
             <span></span>
             <span></span>
@@ -28,22 +61,22 @@
 
         <ul id="navMenu">
             <li>
-                <a href="/">Main</a>
+                <a href="/">{% trans "Main" %}</a>
             </li>
             <li>
-                <a href="/studies">Studies</a>
+                <a href="/studies">{% trans "Studies" %}</a>
             </li>
             <li>
-                <a href="/skills">Skills</a>
+                <a href="/skills">{% trans "Skills" %}</a>
             </li>
             <li>
-                <a href="/experience">Experience</a>
+                <a href="/experience">{% trans "Experience" %}</a>
             </li>
             <li>
-                <a href="/hobbies">Hobbies</a>
+                <a href="/hobbies">{% trans "Hobbies" %}</a>
             </li>
             <li>
-                <a href="/about">About this page</a>
+                <a href="/about">{% trans "About this page" %}</a>
             </li>
         </ul>
     </nav>
@@ -55,7 +88,7 @@
 
     <footer>
         <span class="footer-text">
-            Daniel Gustavo Rodríguez Jiménez
+            {% trans "Daniel Gustavo Rodriguez Jimenez" %}
         </span>
         <div class="footer-socials">
             <a href="https://github.com/danrodjim" target="_blank" aria-label="GitHub">
@@ -71,6 +104,7 @@
         <script src="{% static 'main/scripts/collapsible.js' %}" defer></script>
         <script src="{% static 'main/scripts/tabs.js' %}" defer></script>
         <script src="{% static 'main/scripts/menu-mobile.js' %}" defer></script>
+        <script src="{% static 'main/scripts/slider.js' %}" defer></script>
     {% endblock %}
 </body>
 

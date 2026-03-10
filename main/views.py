@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from django.utils.translation import gettext as _
+
+def my_view(request):
+    message = _("Welcome to my portfolio")
+    return render(request, 'template.html', {'message': message})
 
 def index(request):
     return render(request, 'index.html', {
